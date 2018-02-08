@@ -37,5 +37,12 @@
 
         <div th:fragment="form-penumpang-fragment" th:replace="static/fragments :: wrapper(~{::form-penumpang},'Form Penumpang')"></div>
 
+        <div th:fragment="list-penumpang-fragment-content"></div>
+
+
+        <div th:fragment="list-penumpang-fragment" th:replace="static/fragments :: wrapper(
+        ~{::list-penumpang-fragment-content},'List Penumpang'
+        )"></div>
+
     </body>
 </html>

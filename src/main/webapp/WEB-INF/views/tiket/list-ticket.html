@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="static/fragments :: common-head('List Ticket')"></head>
+<body>
+    <div th:replace="
+        static/fragments :: layout-fragment-container(
+            ~{static/tiket-fragments :: list-ticket-fragment}
+        )
+    "></div>
+</body>
+</html>

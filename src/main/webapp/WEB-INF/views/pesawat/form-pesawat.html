@@ -2,6 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="static/fragments :: common-head('Form Pesawat')"></head>
 <body>
-
+    <div th:replace="static/fragments ::
+        layout-fragment-container(
+            ~{static/pesawat-fragments :: form-pesawat-fragment}
+        )
+    "></div>
 </body>
+    <script th:src="@{/assets/js/form-pesawat.js}"></script>
 </html>

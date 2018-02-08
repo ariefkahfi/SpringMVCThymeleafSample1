@@ -59,7 +59,11 @@
                     <span class="left-navbar-item">
                         <i class="fa fa-ticket fa-fw"></i>Tiket
                     </span>
-                    <ul th:replace="::left-navbar-ul-li('/tiket/form-tiket','/tiket/list-tiket')"></ul>
+                    <ul class="left-navbar-item-ul">
+                        <li class="left-navbar-item-li">
+                            <a th:href="@{/tiket/list-tiket}">List</a>
+                        </li>
+                    </ul>
                 </div>
 
             </div>
@@ -114,7 +118,11 @@
                 <span class="left-navbar-item">
                     <i class="fa fa-ticket fa-fw"></i>Tiket
                 </span>
-                <ul th:replace="::left-navbar-ul-li('/tiket/form-tiket','/tiket/list-tiket')"></ul>
+                <ul class="left-navbar-item-ul">
+                    <li class="left-navbar-item-li">
+                        <a th:href="@{/tiket/list-tiket}">List</a>
+                    </li>
+                </ul>
             </div>
         </div>
 

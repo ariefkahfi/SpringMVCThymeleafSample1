@@ -3,5 +3,11 @@
 <head th:replace="static/fragments :: common-head('List Pesawat')"></head>
 <body>
 
+    <div th:replace="static/fragments ::
+        layout-fragment-container(
+            ~{static/pesawat-fragments :: list-pesawat-fragment}
+        )
+    "></div>
+
 </body>
 </html>

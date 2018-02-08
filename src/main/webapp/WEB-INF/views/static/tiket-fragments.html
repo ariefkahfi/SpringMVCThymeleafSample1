@@ -1,0 +1,10 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <div th:fragment="list-ticket"></div>
+
+        <div th:fragment="list-ticket-fragment" th:replace="
+            static/fragments :: wrapper(~{::list-ticket},'List Ticket')
+        "></div>
+
+    </body>
+</html>
