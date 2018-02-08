@@ -1,6 +1,7 @@
 package com.arief.mvc.models;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 @Table(name = "tiket")
@@ -17,8 +18,7 @@ public class Tiket {
     private String tujuan;
 
 
-    @OneToOne
-    @JoinColumn(name = "id_penumpang",unique = true)
+    @OneToOne(mappedBy = "tiket",fetch = FetchType.LAZY)
     private Penumpang penumpang;
 
     public String getIdTiket() {
@@ -51,6 +51,18 @@ public class Tiket {
 
     public void setPenumpang(Penumpang penumpang) {
         this.penumpang = penumpang;
+    }
+
+    public static Tiket createTiket(String asal , String tujuan){
+        Tiket t = new Tiket();
+        String idTiket  = UUID.randomUUID().toString().substring(0,4);
+        t.setIdTiket(idTiket);
+        t.setAsal(asal);
+        t.setTujuan(tujuan);
+
+        System.out.println("created Tiket instance : " + t);
+
+        return t;
     }
 
     @Override

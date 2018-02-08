@@ -4,6 +4,7 @@ import com.arief.mvc.models.Penumpang;
 import com.arief.mvc.models.Pesawat;
 import com.arief.mvc.models.Tiket;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
@@ -14,6 +15,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 import java.util.Properties;
 
 @Configuration
+@ComponentScan(basePackages = {"com.arief.mvc.dao"})
 public class MySpringContext {
 
 

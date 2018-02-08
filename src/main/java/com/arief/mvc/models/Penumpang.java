@@ -1,5 +1,7 @@
 package com.arief.mvc.models;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 
 @Entity
@@ -19,7 +21,7 @@ public class Penumpang {
 
 
 
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne
     @JoinTable(
             name = "pesawat_penumpang",
             joinColumns = {@JoinColumn(name = "id_penumpang")},
@@ -27,7 +29,11 @@ public class Penumpang {
     )
     private Pesawat pesawat;
 
-    @OneToOne(mappedBy = "penumpang",cascade = {CascadeType.REMOVE})
+    @OneToOne
+    @Cascade({
+            org.hibernate.annotations.CascadeType.SAVE_UPDATE,
+            org.hibernate.annotations.CascadeType.REMOVE})
+    @JoinColumn(name = "id_tiket",unique = true)
     private Tiket tiket;
 
 
@@ -70,6 +76,21 @@ public class Penumpang {
     public void setTiket(Tiket tiket) {
         this.tiket = tiket;
     }
+
+
+    public static Penumpang createPenumpang(
+            String namaPenumpang,
+            String jenkelPenumpang,
+            Pesawat pesawat,
+            Tiket t){
+        Penumpang p = new Penumpang();
+        p.setNamaPenumpang(namaPenumpang);
+        p.setJenkelPenumpang(jenkelPenumpang);
+        p.setPesawat(pesawat);
+        p.setTiket(t);
+        return p;
+    }
+
 
     @Override
     public String toString() {

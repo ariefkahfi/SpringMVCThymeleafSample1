@@ -20,7 +20,16 @@
         </div>
 
         <div th:fragment="list-pesawat">
-
+            <table class="table" border="2">
+                <tr>
+                    <td>Id Pesawat</td>
+                    <td>Nama Pesawat</td>
+                </tr>
+                <tr th:each="p : ${pesawatList}">
+                    <td th:text="${p.idPesawat}"></td>
+                    <td th:text="${p.namaPesawat}"></td>
+                </tr>
+            </table>
         </div>
 
         <div

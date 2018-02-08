@@ -70,6 +70,12 @@ html,body{
 }
 /*wrapper styles*/
 
+/*table styles*/
+.table{
+    width : 100%;
+}
+/*table styles*/
+
 
 /*form styles*/
 .form-wrapper{

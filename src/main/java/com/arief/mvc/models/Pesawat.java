@@ -2,6 +2,7 @@ package com.arief.mvc.models;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -40,6 +41,15 @@ public class Pesawat {
 
     public void setPenumpangList(List<Penumpang> penumpangList) {
         this.penumpangList = penumpangList;
+    }
+
+
+    public static Pesawat createPesawat(String idPesawat,String namaPesawat){
+        Pesawat p = new Pesawat();
+        p.setIdPesawat(idPesawat);
+        p.setNamaPesawat(namaPesawat);
+        p.setPenumpangList(new ArrayList<Penumpang>());
+        return p;
     }
 
     @Override

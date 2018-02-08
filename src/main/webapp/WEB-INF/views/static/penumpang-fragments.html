@@ -23,9 +23,23 @@
                         </div>
                     </div>
                     <div class="form-row clearfix">
+                        <label for="asal" class="form-label">Asal</label>
+                        <input type="text" class="form-input form-input-left" name="asal" id="asal"/>
+                    </div>
+                    <div class="form-row clearfix">
+                        <label for="tujuan" class="form-label">Tujuan</label>
+                        <input type="text" class="form-input form-input-left" name="tujuan" id="tujuan"/>
+                    </div>
+                    <div class="form-row clearfix">
                         <label for="pesawat_penumpang" class="form-label">Pesawat Anda</label>
-                        <select name="pesawat_penumpang" class="form-input-left" id="pesawat_penumpang">
-
+                        <select name="pesawat_penumpang"
+                                class="form-input-left"
+                                id="pesawat_penumpang"
+                        >
+                            <option th:each="p : ${pesawatList}"
+                                    th:value="${p.idPesawat}"
+                                    th:text="${p.namaPesawat}">
+                            </option>
                         </select>
                     </div>
                     <div class="form-row">
@@ -37,7 +51,26 @@
 
         <div th:fragment="form-penumpang-fragment" th:replace="static/fragments :: wrapper(~{::form-penumpang},'Form Penumpang')"></div>
 
-        <div th:fragment="list-penumpang-fragment-content"></div>
+        <div th:fragment="list-penumpang-fragment-content">
+            <table class="table" border="2">
+                <tr>
+                    <td>Nama</td>
+                    <td>Jenkel</td>
+                    <td>Nama Pesawat</td>
+                    <td>Asal</td>
+                    <td>Tujuan</td>
+                    <td>Delete</td>
+                </tr>
+                <tr th:each="p : ${penumpangList}">
+                    <td th:text="${p.namaPenumpang}"></td>
+                    <td th:text="${p.jenkelPenumpang}"></td>
+                    <td th:text="${p.pesawat.namaPesawat}"></td>
+                    <td th:text="${p.tiket.asal}"></td>
+                    <td th:text="${p.tiket.tujuan}"></td>
+                    <td><a th:href="@{'/penumpang/delete/'+${p.idPenumpang}}">Delete</a></td>
+                </tr>
+            </table>
+        </div>
 
 
         <div th:fragment="list-penumpang-fragment" th:replace="static/fragments :: wrapper(
