@@ -1,0 +1,43 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+
+        <div th:fragment="index-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda ea neque rerum sequi similique temporibus, velit. Cum deleniti ea illum iusto molestias, odio repellendus repudiandae sequi totam voluptas. Blanditiis, fugit.</p>
+        </div>
+
+
+            <div th:fragment="card-fragment" class="card-container">
+                <div class="card">
+                    <div class="card-image" id="user-image">
+                        <i class="fa fa-users fa-fw fa-8x i-image"></i>
+                    </div>
+                    <div class="card-desc">
+                        <h4 class="title-no-margin">Penumpang</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image" id="plane-image">
+                        <i class="fa fa-plane fa-fw fa-8x i-image"></i>
+                    </div>
+                    <div class="card-desc">
+                        <h4 class="title-no-margin">Pesawat</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image" id="ticket-image">
+                        <i class="fa fa-ticket fa-fw fa-8x i-image"></i>
+                    </div>
+                    <div class="card-desc">
+                        <h4 class="title-no-margin">Tiket</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div th:fragment="index-fragment">
+                <div th:replace="::card-fragment"></div>
+                <div th:replace="static/fragments :: wrapper(~{::index-content},'Hello World Title')"></div>
+            </div>
+
+
+    </body>
+</html>

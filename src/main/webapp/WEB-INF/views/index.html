@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="static/fragments :: common-head('Index Page')"></head>
+<body>
+        <div th:replace="static/fragments ::
+            layout-fragment-container
+            (
+                ~{static/index-fragments :: index-fragment}
+            )">
+        </div>
+
+</body>
+</html>

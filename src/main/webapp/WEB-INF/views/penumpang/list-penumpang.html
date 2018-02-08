@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="static/fragments :: common-head('List Penumpang Page')"></head>
+<body>
+
+
+
+
+    <div th:replace="static/fragments ::
+        layout-fragment-container(
+            ~{static/list-penumpang-fragments :: list-penumpang-fragment}
+        )
+    "></div>
+
+</body>
+</html>

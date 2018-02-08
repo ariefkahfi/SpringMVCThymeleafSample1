@@ -1,0 +1,134 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head th:fragment="common-head(title_val)">
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title th:text="${title_val}"></title>
+
+        <!--css and other stylesheet-->
+        <link rel="stylesheet" th:href="@{//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css}"/>
+        <link th:href="@{//fonts.googleapis.com/css(q='Open Sans')}" rel="stylesheet"/>
+
+        <link rel="stylesheet" th:href="@{/assets/css/global.css}">
+        <link rel="stylesheet" th:href="@{/assets/css/left-navbar.css}"/>
+        <link rel="stylesheet" th:href="@{/assets/css/right-navbar.css}"/>
+        <link rel="stylesheet" th:href="@{/assets/css/card.css}"/>
+        <link rel="stylesheet" th:href="@{/assets/css/responsive.css}"/>
+        <!--css and other stylesheet-->
+    </head>
+
+    <body>
+
+
+
+            <ul th:fragment="left-navbar-ul-li(form_link,list_link)" class="left-navbar-item-ul">
+                <li class="left-navbar-item-li">
+                    <a th:href="@{${form_link}}">Form</a>
+                </li>
+                <li class="left-navbar-item-li">
+                    <a th:href="@{${list_link}}">List</a>
+                </li>
+            </ul>
+
+
+
+        <nav th:fragment="left-navbar" id="left-navbar">
+            <h4 id="left-navbar-title" class="title-no-margin">AdminLTE</h4>
+            <div id="left-navbar-menu-container">
+                <div id="left-navbar-item-label">Main Navigation</div>
+                <div class="left-navbar-item-container-no-hover">
+                    <span class="left-navbar-item">
+                        <i class="fa fa-home fa-fw"></i>
+                        <a th:href="@{/}">Home Page</a>
+                    </span>
+                </div>
+                <div class="left-navbar-item-container">
+                    <span class="left-navbar-item">
+                        <i class="fa fa-users fa-fw"></i>
+                        Penumpang
+                    </span>
+                    <ul th:replace="::left-navbar-ul-li('/penumpang/form-penumpang','/penumpang/list-penumpang')"></ul>
+                </div>
+                <div class="left-navbar-item-container">
+                    <span class="left-navbar-item">
+                        <i class="fa fa-plane fa-fw"></i>Pesawat
+                    </span>
+                    <ul th:replace="::left-navbar-ul-li('/pesawat/form-pesawat','/pesawat/list-pesawat')"></ul>
+                </div>
+                <div class="left-navbar-item-container">
+                    <span class="left-navbar-item">
+                        <i class="fa fa-ticket fa-fw"></i>Tiket
+                    </span>
+                    <ul th:replace="::left-navbar-ul-li('/tiket/form-tiket','/tiket/list-tiket')"></ul>
+                </div>
+
+            </div>
+
+        </nav>
+
+        <nav th:fragment="right-navbar" id="right-navbar">
+            <h3 class="title-no-margin" id="right-navbar-title">AdminLTE</h3>
+            <div id="right-navbar-menu-container">
+                <span class="right-navbar-item">
+                    <i class="fa fa-envelope fa-fw"></i>
+                </span>
+                <span class="right-navbar-item">
+                    <i class="fa fa-bell fa-fw"></i>
+                </span>
+                <span class="right-navbar-item">
+                    <i class="fa fa fa-flag fa-fw"></i>
+                </span>
+            </div>
+        </nav>
+
+
+        <div th:fragment="wrapper(wrapper_content,wrapper_title)" id="wrapper-fragment">
+            <div class="wrapper">
+                <h3 class="wrapper-title" th:text="${wrapper_title}"></h3>
+                <div class="wrapper-content">
+                    <div th:replace="${wrapper_content}"></div>
+                </div>
+            </div>
+        </div>
+
+        <div th:fragment="right-navbar-secondary" id="right-navbar-menu-secondary-container">
+            <div class="left-navbar-item-contaiener-no-hover">
+                <span class="left-navbar-item">
+                    <i class="fa fa-home fa-fw"></i>
+                    <a th:href="@{/}">Home Page</a>
+                </span>
+            </div>
+            <div class="left-navbar-item-container">
+                <span class="left-navbar-item">
+                    <i class="fa fa-users fa-fw"></i>Penumpang
+                </span>
+                <ul th:replace="::left-navbar-ul-li('/penumpang/form-penumpang','/penumpang/list-penumpang')"></ul>
+            </div>
+            <div class="left-navbar-item-container">
+                <span class="left-navbar-item">
+                    <i class="fa fa-plane fa-fw"></i>Pesawat
+                </span>
+                <ul th:replace="::left-navbar-ul-li('/pesawat/form-pesawat','/pesawat/list-pesawat')"></ul>
+            </div>
+            <div class="left-navbar-item-container">
+                <span class="left-navbar-item">
+                    <i class="fa fa-ticket fa-fw"></i>Tiket
+                </span>
+                <ul th:replace="::left-navbar-ul-li('/tiket/form-tiket','/tiket/list-tiket')"></ul>
+            </div>
+        </div>
+
+
+        <div th:fragment="layout-fragment-container(layout_fragments1)" id="layout-container">
+            <div class="layout-item" th:insert="::left-navbar" id="left-layout-container"></div>
+            <div class="layout-item"  id="right-layout-container">
+                <div th:replace="::right-navbar"></div>
+                <div th:replace="::right-navbar-secondary"></div>
+
+                <div th:replace="${layout_fragments1}"></div>
+            </div>
+        </div>
+
+
+    </body>
+</html>

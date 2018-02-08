@@ -1,0 +1,42 @@
+.card-container{
+    padding : 5px;
+    display: flex;
+}
+.card{
+    display: flex;
+    flex-basis: 240px;
+    height : 100px;
+    flex-grow: 1;
+    background-color: white;
+    border-radius : 3px;
+    margin : 5px;
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+}
+.card-desc{
+    flex-grow: 1;
+    padding : 5px;
+}
+.card-image{
+    color : white;
+    flex-basis: 35%;
+    display: flex;
+    font-size :60px;
+
+    justify-content: center;
+    align-items: center;
+
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+#user-image{
+    background-color: #00C0EF;
+}
+
+#plane-image{
+    background-color: #DD4B39;
+}
+
+#ticket-image{
+    background-color: #00A65A;
+}

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="static/fragments :: common-head('Form Penumpang Page')"></head>
+<body>
+    <div th:replace="static/fragments ::
+    layout-fragment-container
+    (
+        ~{static/form-penumpang-fragments :: form-penumpang-fragment}
+    )
+    ">
+    </div>
+</body>
+    <script th:src="@{/assets/js/form-penumpang.js}"></script>
+</html>

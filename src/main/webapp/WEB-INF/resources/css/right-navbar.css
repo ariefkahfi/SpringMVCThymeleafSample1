@@ -1,0 +1,21 @@
+#right-navbar{
+    background-color: #3C8DBC;
+    color : white;
+    padding : 12px;
+    display: flex;
+    justify-content: flex-end;
+}
+#right-navbar-title{
+    display: none;
+}
+#right-navbar-menu-secondary-container{
+    display: none;
+    background-color: #222D32;
+    color : white;
+}
+#right-navbar-menu-container{
+
+}
+.right-navbar-item{
+    margin : 5px;
+}

@@ -1,0 +1,11 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="list-penumpang-fragment-content"></div>
+
+
+    <div th:fragment="list-penumpang-fragment" th:replace="static/fragments :: wrapper(
+        ~{::list-penumpang-fragment-content},'List Penumpang'
+    )"></div>
+
+</body>
+</html>

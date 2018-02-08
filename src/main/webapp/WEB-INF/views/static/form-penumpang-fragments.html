@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+
+        <div th:fragment="form-penumpang">
+            <div class="form-wrapper">
+                <form th:action="@{/penumpang/form-penumpang}" name="form_penumpang" method="POST">
+                    <div class="form-row clearfix">
+                        <label for="nama_penumpang" class="form-label">Nama Penumpang</label>
+                        <input type="text"
+                               class="form-input form-input-left"
+                               name="nama_penumpang"
+                               id="nama_penumpang"/>
+                    </div>
+                    <div class="form-row clearfix">
+                        <label for="jenkel_penumpang" class="form-label">Jenis Kelamin</label>
+                        <div id="jenkel_penumpang" class="form-input-left">
+                            <div>
+                                <input type="radio"  name="jenkel_penumpang" value="male"/>Male
+                            </div>
+                            <div>
+                                <input type="radio" name="jenkel_penumpang" value="female">Female
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row clearfix">
+                        <label for="pesawat_penumpang" class="form-label">Pesawat Anda</label>
+                        <select name="pesawat_penumpang" class="form-input-left" id="pesawat_penumpang">
+
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <input type="submit" onclick="return submitPenumpang()" class="form-button form-button-confirm" value="Submit Data">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div th:fragment="form-penumpang-fragment" th:replace="static/fragments :: wrapper(~{::form-penumpang},'Form Penumpang')"></div>
+
+    </body>
+</html>
