@@ -7,7 +7,8 @@
                     <div class="form-row clearfix">
                         <label for="id_pesawat" class="form-label">ID Pesawat</label>
                         <input type="text" name="id_pesawat" class="form-input form-input-left" id="id_pesawat"/>
-                    </div>
+                    </div><meta charset="UTF-8">
+                    <title>Title</title>
                     <div class="form-row clearfix">
                         <label for="nama_pesawat" class="form-label">Nama Pesawat</label>
                         <input type="text" name="nama_pesawat" class="form-input form-input-left" id="nama_pesawat"/>
@@ -24,10 +25,18 @@
                 <tr>
                     <td>Id Pesawat</td>
                     <td>Nama Pesawat</td>
+                    <td>Detail</td>
+                    <td>Delete</td>
                 </tr>
                 <tr th:each="p : ${pesawatList}">
                     <td th:text="${p.idPesawat}"></td>
                     <td th:text="${p.namaPesawat}"></td>
+                    <td>
+                        <a th:href="@{'/pesawat/cari-pesawat/'+${p.idPesawat}}">Detail</a>
+                    </td>
+                    <td>
+                        <a th:href="@{'/pesawat/delete/'+${p.idPesawat}}">Delete</a>
+                    </td>
                 </tr>
             </table>
         </div>
@@ -41,6 +50,30 @@
             th:fragment="list-pesawat-fragment"
             th:replace="static/fragments :: wrapper(~{::list-pesawat},'List Pesawat')">
         </div>
+
+        <div th:fragment="list-penumpang-pesawat">
+            <table class="table" border="2">
+                <tr>
+                    <td>Nama</td>
+                    <td>Jenkel</td>
+                    <td>Asal</td>
+                    <td>Tujuan</td>
+                </tr>
+                <tr th:each="p : ${penumpangList}">
+                    <td th:text="${p.namaPenumpang}"></td>
+                    <td th:text="${p.jenkelPenumpang}"></td>
+                    <td th:text="${p.tiket.asal}"></td>
+                    <td th:text="${p.tiket.tujuan}"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div
+                th:fragment="list-penumpang-pesawat-fragment"
+                th:replace="static/fragments :: wrapper(~{::list-penumpang-pesawat},'List Penumpang')"
+        >
+        </div>
+
 
     </body>
 </html>

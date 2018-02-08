@@ -7,10 +7,7 @@ import com.arief.mvc.models.Pesawat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -48,5 +45,20 @@ public class PesawatController {
     public String listPesawat(Model m){
         m.addAttribute("pesawatList",pesawatService.getAll());
         return "pesawat/list-pesawat";
+    }
+
+    @GetMapping("/cari-pesawat/{idPesawat}")
+    public String cariPesawat(@PathVariable("idPesawat")String s,Model m){
+        Pesawat p = pesawatService.getOne(s);
+        m.addAttribute("pesawatId",p.getIdPesawat());
+        m.addAttribute("penumpangList",p.getPenumpangList());
+        return "pesawat/detail-pesawat";
+    }
+
+    @GetMapping("/delete/{idPesawat}")
+    public String deletePesawat(@PathVariable("idPesawat")String s){
+        Pesawat getOne = pesawatService.getOne(s);
+        pesawatService.delete(getOne);
+        return "redirect:/pesawat/list-pesawat";
     }
 }

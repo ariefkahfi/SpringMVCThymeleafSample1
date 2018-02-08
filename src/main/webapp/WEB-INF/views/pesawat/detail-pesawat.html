@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="static/fragments :: common-head('Cari Pesawat')"></head>
+<body>
+
+
+    <div th:replace="static/fragments ::
+    layout-fragment-container(
+        ~{static/pesawat-fragments :: list-penumpang-pesawat-fragment}
+    )"
+    >
+    </div>
+
+
+</body>
+    <script th:src="@{/assets/js/detail-pesawat.js}"></script>
+</html>
